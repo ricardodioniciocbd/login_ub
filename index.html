@@ -10,7 +10,8 @@
     <div class="container">
         <h2>Iniciar Sesión</h2>
         <form action="login.php" method="POST">
-            <input type="text" name="num_control" placeholder="Número de control" required>
+            <input type="text" name="num_control" placeholder="Número de control" required pattern="[0-9]{6,20}" title="El número de control debe tener entre 6 y 20 dígitos numéricos.">
+            <input type="password" name="password" placeholder="Contraseña" required minlength="6" maxlength="30" pattern=".{6,}" title="La contraseña debe tener al menos 6 caracteres.">
             <button type="submit">Entrar</button>
         </form>
         <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>

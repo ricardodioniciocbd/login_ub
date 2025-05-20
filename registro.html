@@ -10,12 +10,26 @@
     <div class="container">
         <h2>Registro de Usuario</h2>
         <form action="registro.php" method="POST">
-            <input type="text" name="nombre" placeholder="Nombre completo" required>
-            <input type="text" name="carrera" placeholder="Nombre de carrera" required>
-            <input type="text" name="num_control" placeholder="Número de control" required>
+            <input type="text" name="nombre" placeholder="Nombre completo" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}" title="El nombre debe tener al menos 3 letras y solo letras y espacios.">
+            <input type="text" name="carrera" placeholder="Nombre de carrera" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}" title="La carrera debe tener al menos 3 letras y solo letras y espacios.">
+            <input type="text" name="num_control" placeholder="Número de control" required pattern="[0-9]{6,20}" title="El número de control debe tener entre 6 y 20 dígitos numéricos.">
+            <input type="password" name="password" id="reg_password" placeholder="Contraseña" required minlength="6" maxlength="30" pattern=".{6,}" title="La contraseña debe tener al menos 6 caracteres.">
+            <button type="button" onclick="togglePassword('reg_password', this)">👁️</button>
             <button type="submit">Registrarse</button>
         </form>
         <p>¿Ya tienes cuenta? <a href="index.html">Inicia sesión aquí</a></p>
     </div>
+    <script>
+    function togglePassword(id, btn) {
+        const input = document.getElementById(id);
+        if (input.type === 'password') {
+            input.type = 'text';
+            btn.textContent = '🙈';
+        } else {
+            input.type = 'password';
+            btn.textContent = '👁️';
+        }
+    }
+    </script>
 </body>
 </html> 
